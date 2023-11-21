@@ -56,7 +56,25 @@ class MyApp extends StatelessWidget {
             // SLIVER LIST FOTO TENTANG KAMI
             SliverList(
               delegate: SliverChildListDelegate([
-                Image.asset("images/berlin.jpg"),
+                Stack(
+                  children: [
+                    Image.asset("images/berlin.jpg"),
+                    Positioned(
+                      bottom: 20,
+                      left: 20,
+                      right: 20,
+                      child: Text(
+                        'Hubungi Kami',
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontFamily: 'Times New Roman',
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
+                ),
               ]),
             ),
 
@@ -98,21 +116,31 @@ class MyApp extends StatelessWidget {
                         margin: EdgeInsets.only(bottom: 10.0),
                         child: Text(
                           'HUBUNGI KAMI',
-                          style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, fontFamily: 'Times'),
+                          style: const TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Times New Roman'
+                          ),
                         ),
                       ),
                       Container(
                         margin: EdgeInsets.only(top: 10.0),
                         child: Text(
                           'KANTOR PUSAT',
-                          style: TextStyle(fontSize: 18.0),
+                          style: TextStyle(
+                              fontSize: 18.0,
+                              fontFamily: 'Times New Roman',
+                          ),
                         ),
                       ),
                       Container(
                         margin: EdgeInsets.only(top: 10.0),
                         child: Text(
                           'MULA BY GALERIA JAKARTA, CILANDAK TOWN SQUARE, LT. BASEMENT.',
-                          style: TextStyle(fontSize: 16.0),
+                          style: TextStyle(
+                              fontSize: 16.0,
+                              fontFamily: 'Times New Roman',
+                          ),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -120,7 +148,10 @@ class MyApp extends StatelessWidget {
                         margin: EdgeInsets.only(top: 10.0),
                         child: Text(
                           'Phone : 085286754052',
-                          style: TextStyle(fontSize: 16.0),
+                          style: TextStyle(
+                              fontSize: 16.0,
+                              fontFamily: 'Times New Roman',
+                          ),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -146,7 +177,11 @@ class MyApp extends StatelessWidget {
                     child: Center(
                       child: Text(
                         "Copyright 2023 - inaklug hak cipta dilindungi undang undang",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Times New Roman',
+                        ),
+                        textAlign: TextAlign.justify,
                       ),
                     ),
                   ),
