@@ -6,6 +6,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: CustomScrollView(
           slivers: <Widget>[
@@ -118,7 +119,7 @@ class MyApp extends StatelessWidget {
                       Container(
                         margin: EdgeInsets.only(top: 10.0),
                         child: Text(
-                          'PHONE : 0812-8134-5678',
+                          'Phone : 085286754052',
                           style: TextStyle(fontSize: 16.0),
                           textAlign: TextAlign.center,
                         ),
@@ -237,7 +238,7 @@ class _MessageFormState extends State<MessageForm> {
   final TextEditingController _messageController = TextEditingController();
 
   String _errorText = '';
-  
+
   void _sendMessage() {
     if (_nameController.text.isEmpty || _emailController.text.isEmpty) {
       setState(() {
