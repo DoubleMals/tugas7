@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
         body: CustomScrollView(
           slivers: <Widget>[
 
-            // SLIVER APP BAR (LOGO INAKLUG, TULISAN INAKLUG, ICON BURGER, 2 WARNA AGAK TRANSPARANT)
+            // BAGIAN APPBAR
             SliverAppBar(
               pinned: true,
               expandedHeight: 80,
@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
               backgroundColor: Colors.transparent,
             ),
 
-            // SLIVER LIST FOTO TENTANG KAMI
+            // BAGIAN BACKGROUND HUBUNGI KAMI
             SliverList(
               delegate: SliverChildListDelegate([
                 Stack(
@@ -78,7 +78,7 @@ class MyApp extends StatelessWidget {
               ]),
             ),
 
-            // SLIVER LIST KIRIM PESAN
+            // TEKS KIRIM PESAN
             SliverList(
               delegate: SliverChildBuilderDelegate(
                       (BuildContext context, int index) {
@@ -105,7 +105,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
 
-            // SLIVER LIST TULISAN HUBUNGI KAMI DAN ISINYA
+            // BAGIAN HUBUNGI KAMI DAN ISINYA
             SliverList(
               delegate: SliverChildListDelegate([
                 Container(
@@ -161,7 +161,7 @@ class MyApp extends StatelessWidget {
               ]),
             ),
 
-            // SLIVER LIST FOOTER UNTUK COPYRIGHT
+            // BAGIAN FOOTER
             SliverList(
               delegate: SliverChildListDelegate([
                 Container(
@@ -192,7 +192,7 @@ class MyApp extends StatelessWidget {
           ],
         ),
 
-        // ISI BURGER ICON
+        // BURGER DRAWER
         endDrawer: Center(
           child: Container(
             width: double.infinity,
@@ -307,6 +307,7 @@ class _MessageFormState extends State<MessageForm> {
     }
   }
 
+  // BAGIAN MESSAGE FORM DAN RECAPTCHA
   @override
   Widget build(BuildContext context) {
     return Column(
