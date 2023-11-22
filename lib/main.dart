@@ -276,7 +276,7 @@ class _MessageFormState extends State<MessageForm> {
   void _sendMessage() {
     if (_nameController.text.isEmpty || _emailController.text.isEmpty) {
       setState(() {
-        _errorText = 'Nama/Email harus diisi';
+        _errorText = 'Nama dan Email harus diisi';
       });
     } else {
       // Lakukan sesuatu dengan data pesan yang dikirim
@@ -327,11 +327,26 @@ class _MessageFormState extends State<MessageForm> {
           controller: _phoneController,
           decoration: InputDecoration(labelText: 'Telepon/Handphone'),
         ),
+        SizedBox(height: 10.0,),
         TextFormField(
           controller: _messageController,
           decoration: InputDecoration(
             labelText: 'Kirim Pesan',
-            border: OutlineInputBorder(),
+            fillColor: Colors.white,
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25.0),
+              borderSide: BorderSide(
+                  width: 1,
+                  color: Colors.blue
+              ),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25.0),
+              borderSide: BorderSide(
+                color: Colors.black,
+                width: 1.0,
+              ),
+            ),
           ),
           maxLines: 5,
         ),
