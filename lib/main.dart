@@ -329,7 +329,10 @@ class _MessageFormState extends State<MessageForm> {
         ),
         TextFormField(
           controller: _messageController,
-          decoration: InputDecoration(labelText: 'Kirim Pesan'),
+          decoration: InputDecoration(
+            labelText: 'Kirim Pesan',
+            border: OutlineInputBorder(),
+          ),
           maxLines: 5,
         ),
         SizedBox(height: 16.0),
