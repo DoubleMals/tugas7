@@ -56,24 +56,33 @@ class MyApp extends StatelessWidget {
             // BAGIAN BACKGROUND HUBUNGI KAMI
             SliverList(
               delegate: SliverChildListDelegate([
-                Stack(
-                  children: [
-                    Image.asset("images/berlin.jpg"),
-                    Positioned(
-                      bottom: 20,
-                      left: 20,
-                      right: 20,
-                      child: Text(
-                        'Hubungi Kami',
-                        style: TextStyle(
-                          fontSize: 25,
-                          fontFamily: 'Times New Roman',
-                          color: Colors.white,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
+                Container(
+                  height: MediaQuery.of(context).size.height,  // Tinggi sesuai dengan tinggi layar
+                  width: MediaQuery.of(context).size.width,    // Lebar sesuai dengan lebar layar
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("images/berlin.jpg"),
+                      fit: BoxFit.cover,
                     ),
-                  ],
+                  ),
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        bottom: 100,
+                        left: 20,
+                        right: 20,
+                        child: Text(
+                          'Hubungi Kami',
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontFamily: 'Times New Roman',
+                            color: Colors.white,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ]),
             ),
