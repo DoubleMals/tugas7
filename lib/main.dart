@@ -91,7 +91,6 @@ class _MyAppState extends State<MyApp> {
                 ),
               ]),
             ),
-
             SliverList(
               delegate: SliverChildListDelegate([
                 SizedBox(
@@ -114,7 +113,6 @@ class _MyAppState extends State<MyApp> {
                 )
               ]),
             ),
-
             SliverList(
               delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
