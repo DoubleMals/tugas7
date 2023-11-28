@@ -12,21 +12,23 @@
     </style>
 </head>
 <body>
-<div style='height: 500px;'></div>
-<form action="?" method="POST">
-    <div class="g-recaptcha"
-         data-sitekey="6Lem7BgpAAAAAKq69x92MalozjXxek9ttyk_drvy"
-         data-callback="captchaCallback">
 
-    </div>
-</form>
+    <div style='height: 500px;'></div>
 
-<script>
-        function captchaCallback(response) {
-            if (typeof Captcha !== "undefined") {
-                Captcha.postMessage(response);
+    <form action="?" method="POST">
+        <div class="g-recaptcha"
+             data-sitekey="6Lem7BgpAAAAAKq69x92MalozjXxek9ttyk_drvy"
+             data-callback="captchaCallback">
+
+        </div>
+    </form>
+
+    <script>
+            function captchaCallback(response) {
+                if (typeof Captcha !== "undefined") {
+                    Captcha.postMessage(response);
+                }
             }
-        }
     </script>
 </body>
 </html>

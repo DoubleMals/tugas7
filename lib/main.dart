@@ -10,8 +10,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  WebViewPlusController? _controller;
-  double _height = 1;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,6 +17,8 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         body: CustomScrollView(
           slivers: <Widget>[
+
+            // SLIVER BAR GRADIENT BIRU-UNGU
             SliverAppBar(
               pinned: true,
               expandedHeight: 80,
@@ -39,7 +39,7 @@ class _MyAppState extends State<MyApp> {
                     fit: BoxFit.contain,
                     height: 50,
                   ),
-                  const Text('inaklug'),
+                  const Text('Inaklug'),
                 ],
               ),
               actions: <Widget>[
@@ -59,6 +59,8 @@ class _MyAppState extends State<MyApp> {
               ],
               backgroundColor: Colors.transparent,
             ),
+
+            // SLIVER BACKGROUND BERLIN DAN TULISAN "HUBUNGI KAMI"
             SliverList(
               delegate: SliverChildListDelegate([
                 Container(
@@ -91,28 +93,8 @@ class _MyAppState extends State<MyApp> {
                 ),
               ]),
             ),
-            SliverList(
-              delegate: SliverChildListDelegate([
-                SizedBox(
-                  height: _height,
-                  child: WebViewPlus(
-                    onWebViewCreated: (controller) {
-                      this._controller = controller;
-                      controller.loadUrl('assets/webpages/index.html');
-                    },
-                    onPageFinished: (url) {
-                      _controller?.getHeight().then((double height) {
-                        print("Height: " + height.toString());
-                        setState(() {
-                          _height = height;
-                        });
-                      });
-                    },
-                    javascriptMode: JavascriptMode.unrestricted,
-                  ),
-                )
-              ]),
-            ),
+
+            // SLIVER TULISAN "KIRIM PESAN"
             SliverList(
               delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
@@ -138,6 +120,8 @@ class _MyAppState extends State<MyApp> {
                 childCount: 1,
               ),
             ),
+
+            // SLIVER INFORMASI HUBUNGI KAMI (ALAMAT & NO TELP)
             SliverList(
               delegate: SliverChildListDelegate([
                 Container(
@@ -191,6 +175,8 @@ class _MyAppState extends State<MyApp> {
                 ),
               ]),
             ),
+
+            // SLIVER FOOTER COPYRIGHT
             SliverList(
               delegate: SliverChildListDelegate([
                 Container(
@@ -219,6 +205,8 @@ class _MyAppState extends State<MyApp> {
             ),
           ],
         ),
+
+        //DRAWER HAMBURGER
         endDrawer: Center(
           child: Container(
             width: double.infinity,
@@ -234,7 +222,7 @@ class _MyAppState extends State<MyApp> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Image.asset(
-                          "image/logoInaklug.png",
+                          "images/inaklug.png",
                           height: 70,
                           fit: BoxFit.contain,
                         ),
@@ -250,6 +238,8 @@ class _MyAppState extends State<MyApp> {
                       ],
                     ),
                   ),
+
+                  //ISI DRAWER
                   ListTile(
                     title: Text('HOME', style: TextStyle(fontSize: 20)),
                     onTap: () {},
@@ -285,6 +275,7 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
+// BUAT FORM KIRIM PESAN
 class MessageForm extends StatefulWidget {
   @override
   _MessageFormState createState() => _MessageFormState();
@@ -297,39 +288,20 @@ class _MessageFormState extends State<MessageForm> {
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _messageController = TextEditingController();
 
+  WebViewPlusController? _controller;
+  double _height = 1;
   String _errorText = '';
 
+  // CEK NAMA DAN EMAIL HARUS DIISI
   void _sendMessage() {
     if (_nameController.text.isEmpty || _emailController.text.isEmpty) {
       setState(() {
         _errorText = 'Nama dan Email harus diisi';
       });
-    } else {
-      String name = _nameController.text;
-      String company = _companyController.text;
-      String email = _emailController.text;
-      String phone = _phoneController.text;
-      String message = _messageController.text;
-
-      print('Pesan terkirim:');
-      print('Nama: $name');
-      print('Perusahaan/Organisasi: $company');
-      print('Email: $email');
-      print('Telepon/Handphone: $phone');
-      print('Pesan: $message');
-
-      _nameController.clear();
-      _companyController.clear();
-      _emailController.clear();
-      _phoneController.clear();
-      _messageController.clear();
-
-      setState(() {
-        _errorText = '';
-      });
     }
   }
 
+  // PAGE FORM
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -350,35 +322,84 @@ class _MessageFormState extends State<MessageForm> {
           controller: _phoneController,
           decoration: InputDecoration(labelText: 'Telepon/Handphone'),
         ),
-        SizedBox(height: 10.0),
-        TextFormField(
-          controller: _messageController,
-          decoration: InputDecoration(
-            labelText: 'Kirim Pesan',
-            fillColor: Colors.white,
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25.0),
-              borderSide: BorderSide(width: 1, color: Colors.blue),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25.0),
-              borderSide: BorderSide(
-                color: Colors.black,
-                width: 1.0,
+        Container(
+          child: Column(
+            children: [
+              SizedBox(height: 10.0),
+              TextFormField(
+                controller: _messageController,
+                decoration: InputDecoration(
+                  labelText: 'Kirim Pesan',
+                  fillColor: Colors.white,
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(0.0),
+                    borderSide: BorderSide(width: 1, color: Colors.blue),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(0.0),
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                      width: 1.0,
+                    ),
+                  ),
+                ),
+                maxLines: 5,
               ),
-            ),
+
+              // BUAT CAPTCHA
+              SizedBox(
+                height: _height,
+                child: WebViewPlus(
+                  onWebViewCreated: (controller) {
+                    this._controller = controller;
+                    controller.loadUrl('assets/webpages/index.html');
+                  },
+                  onPageFinished: (url) {
+                    _controller?.getHeight().then((double height) {
+                      print("Height: " + height.toString());
+                      setState(() {
+                        _height = height;
+                      });
+                    });
+                  },
+                  javascriptMode: JavascriptMode.unrestricted,
+                ),
+              ),
+            ],
           ),
-          maxLines: 5,
         ),
+
         SizedBox(height: 16.0),
         Text(
           _errorText,
           style: TextStyle(color: Colors.red),
         ),
         SizedBox(height: 16.0),
+
+        // BUTTON KIRIM PESAN
         ElevatedButton(
-          onPressed: _sendMessage,
-          child: Text('Kirim Pesan'),
+          onPressed:_sendMessage,
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+            shape: MaterialStateProperty.all<OutlinedBorder>(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(40.0),
+                side: BorderSide(
+                  color:Colors.purple,
+                  width: 1,
+                ),
+              ),
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 14,bottom: 14,left: 40,right: 40),
+            child: Text(
+              "Kirim Pesan",
+              style: TextStyle(
+                color:  Colors.blue,
+              ),
+            ),
+          ),
         ),
       ],
     );
